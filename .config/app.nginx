@@ -1,8 +1,4 @@
 server {
-    return 404;
-}
-
-server {
     listen 80;
     server_name bookcheck.kr www.bookcheck.kr api.bookcheck.kr;
 
