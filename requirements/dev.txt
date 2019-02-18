@@ -1,4 +1,4 @@
 -r base.txt
 
-boto3==1.9.95
+awscli==1.16.106
 ipython==7.2.0
