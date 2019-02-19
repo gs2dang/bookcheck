@@ -1,5 +1,7 @@
 import requests
+import sentry_sdk
 from .base import *
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -31,3 +33,9 @@ try:
     ALLOWED_HOSTS.append(EC2_IP)
 except requests.exceptions.RequestException:
     pass
+
+# Sentry
+sentry_sdk.init(
+    dsn=SECRETS['SENTRY_DSN'],
+    integrations=[DjangoIntegration()]
+)
