@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookcheck</title>
+    <!-- Semantic UI -->
+    <link rel="stylesheet" href="{% static 'Semantic-UI-CSS-master/semantic.css' %}">
+</head>
+<body>
+
+<div class="ui menu">
+    <div class="ui category search item">
+        <form action="" method="get" class="ui large form">
+            <div class="ui transparent icon input buttons">
+                <input class="prompt" type="text" placeholder="책 제목을 입력해주세요" name="q" value="{{ q }}">
+                <i class="search link icon"></i>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
