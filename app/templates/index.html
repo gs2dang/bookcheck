@@ -5,20 +5,39 @@
     <meta charset="UTF-8">
     <title>Bookcheck</title>
     <!-- Semantic UI -->
+    <!-- 배포 시에는 semantic.min.css 사용 -->
     <link rel="stylesheet" href="{% static 'Semantic-UI-CSS-master/semantic.css' %}">
+    <script src="{% static 'Semantic-UI-CSS-master/semantic.js' %}"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
 </head>
 <body>
-
 <div class="ui menu">
-    <div class="ui category search item">
-        <form action="" method="get" class="ui large form">
-            <div class="ui transparent icon input buttons">
-                <input class="prompt" type="text" placeholder="책 제목을 입력해주세요" name="q" value="{{ q }}">
-                <i class="search link icon"></i>
+    <form action="" method="get" class="ui form">
+        <div class="ui search item buttons">
+            <div class="ui transparent icon input">
+                <input class="prompt" type="text" placeholder="책 제목을 입력해주세요" name="search" value="{{ search }}">
             </div>
-        </form>
-    </div>
+            <button class="ui icon basic button"><i class="search link icon"></i></button>
+        </div>
+    </form>
+    <a href="{% url 'list:index' %}" class="item">
+        홈
+    </a>
 </div>
-
+{% if context %}
+{% for i in context %}
+<ul>
+    <li>
+        {{ i.title }}
+        <br>
+        <small>{{ i.author }}|{{ i.publisher }}|{{ i.date }}</small>
+    </li>
+</ul>
+{% endfor %}
+{% endif %}
 </body>
 </html>

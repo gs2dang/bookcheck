@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% block content %}
+{% if context %}
+{% for i in context %}
+<ul>
+    <li>
+        {{ i.title }}
+        <br>
+        <small>{{ i.author }}|{{ i.publisher }}|{{ i.date }}</small>
+    </li>
+</ul>
+{% endfor %}
+{% endif %}
+{% endblock %}
