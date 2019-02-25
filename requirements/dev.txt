@@ -1,4 +1,5 @@
 -r base.txt
 
 awscli==1.16.106
+django-debug-toolbar==1.11
 ipython==7.2.0
